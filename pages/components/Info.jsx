@@ -6,10 +6,13 @@ import { TbBrandTelegram } from "react-icons/tb"
 const Info = () => {
     return (
         <section className="info">
-            <img
+            <Image
                 src="/images/me.png"
                 alt="Ramazan Ramazanov"
                 className="info-me-photo"
+                priority
+                width={235}
+                height={280}
             />
             <div className="info-name-job">
                 <h1 className="info-name">Ramazan Ramazanov</h1>
@@ -31,7 +34,7 @@ const Info = () => {
                         <FaWhatsapp className="media-icon" />
                     </Link>
                 </li>
-            </ul>
+            </ul>   
         </section>
     );
 }
