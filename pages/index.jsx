@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Info from './components/Info'
 import Navbar from './components/Navbar'
 
 export default function Home() {
@@ -8,9 +9,10 @@ export default function Home() {
       <Head>
         <title>Ramazanov | Web Developer</title>
       </Head>
-      <div className="container">
+      <main className="container">
         <Navbar />
-      </div>
+        <Info />
+      </main>
     </div>
   )
 }
