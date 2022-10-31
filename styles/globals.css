@@ -99,7 +99,7 @@ h6 {
 /* Info */
 section {
   padding: 4em 0;
-  margin-left: 1em;
+  margin: 0 1rem;
 }
 
 .info {
@@ -196,9 +196,10 @@ section {
 /* Projects */
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-column-gap: .9rem;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-column-gap: 1rem;
   grid-row-gap: 2rem;
+  place-content: center;
 }
 
 .card {
