@@ -1,21 +1,22 @@
 import Link from "next/link";
 
 const Navbar = () => {
+    
     return (
         <nav className="nav">
             <ul className="nav-links">
                 <li>
                     <Link className="nav-link" href="/">Home</Link>
-                </li>    
+                </li>
                 <li>
                     <Link className="nav-link" href="/">Skills</Link>
-                </li> 
+                </li>
                 <li>
-                    <Link className="nav-link" href="/">Projects</Link>
-                </li> 
+                    <Link className="nav-link" href="#projects">Projects</Link>
+                </li>
                 <li>
                     <Link className="nav-link" href="/">Contact me</Link>
-                </li>                    
+                </li>
             </ul>
         </nav>
     );
