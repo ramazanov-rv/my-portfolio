@@ -18,6 +18,7 @@
   --mainBackground: #000;
   --mainWhite: #FFF;
   --mainTransition: .2s ease-in-out;
+  --mainBorderRadius: 20px;
 }
 
 body {
@@ -26,7 +27,12 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 400;
 
   padding: 0;
@@ -80,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 10px;
+  border-radius: var(--mainBorderRadius);
 
   transition: var(--mainTransition);
 }
@@ -92,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Info */
 section {
-  padding: 6em 0;
+  padding: 4em 0;
   margin-left: 1em;
 }
 
@@ -136,7 +142,7 @@ section {
   margin: 1.2rem;
 }
 
-.media-links li:hover .media-icon{
+.media-links li:hover .media-icon {
   color: var(--mainBackground);
 }
 
@@ -144,7 +150,7 @@ section {
   padding: .4rem;
 
   font-size: 2.5rem;
-  border-radius: 20px;
+  border-radius: var(--mainBorderRadius);
 
   color: var(--mainWhite);
   background: var(--mainColor);
@@ -158,11 +164,10 @@ section {
   font-weight: 500;
   font-size: 2rem;
   text-transform: uppercase;
+  margin-bottom: 1.5em;
 }
 
 .skills-container {
-  margin-top: 3em;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.3em;
@@ -170,24 +175,125 @@ section {
 
 .skill {
   position: relative;
-  
-  font-size: 1.1rem;
+
+  font-size: 1.3rem;
 }
- .skill::after {
+
+.skill::after {
   content: "";
   height: 10px;
   width: 100%;
   max-width: 170px;
   background: linear-gradient(to right, var(--mainColor) 100%, var(--mainWhite) 0%);
 
-  border-radius: 20px;
+  border-radius: var(--mainBorderRadius);
   border: 2px solid var(--mainBackground);
-  position: absolute; 
+  position: absolute;
   right: 50%;
   top: 40%;
- }
+}
 
+/* Projects */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-column-gap: .9rem;
+  grid-row-gap: 2rem;
+}
 
+.card {
+  width: 100%;
+  max-width: 500px;
+
+  background: var(--mainBackground);
+  border-radius: var(--mainBorderRadius);
+  color: var(--mainWhite);
+  overflow: hidden;
+
+  transition: transform var(--mainTransition);
+  outline: 2px solid var(--mainColor);
+}
+
+.card-content {
+  --padding: 2rem;
+  padding: var(--padding);
+
+  transform: translateY(60%);
+  transition: transform .5s ease;
+}
+
+.card-content > *:not(.card-title) {
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.card:hover .card-content > *:not(.card-title) {
+  opacity: 1;
+}
+
+.card:hover .card-content {
+  transform: translateY(0);
+}
+
+.card-title {
+  position: relative;
+
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 1em;
+
+  width: fit-content;
+  max-width: 100%;
+}
+
+.card-title::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+
+  position: absolute;
+  bottom: -7px;
+  left: calc(var(--padding) * -1 + .5rem);
+
+  background-color: var(--mainColor);
+  border-radius: var(--mainBorderRadius);
+
+  transform: scaleX(0);
+  transition: transform .5s ease;
+  transition-delay: .45s;
+  transform-origin: left;
+
+}
+
+.card:hover .card-title::after {
+  transform: scaleX(1);
+}
+
+.card-description {
+  max-width: 350px;
+  margin-bottom: .75em;
+  line-height: 1.5;
+}
+
+.card-button {
+  padding: .75rem;
+  border: none;
+  background-color: var(--mainColor);
+  color: var(--mainWhite);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .75rem;
+
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: color var(--mainTransition);
+}
+
+.card-button:hover {
+  color: var(--mainBackground);
+}
 
 
 
@@ -205,7 +311,14 @@ section {
 
 
 /* Media */
+/* @media (hover) {
+  .card-content {
+    transform: translateY(0);
+  }
+} */
+
 @media (max-width: 1100px) {
+
   /* Info */
   .info {
     flex-direction: column;
@@ -222,7 +335,7 @@ section {
   /* Skills */
   .skill {
     flex-direction: column;
-    
+
   }
 
   .skill::after {

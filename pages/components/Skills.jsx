@@ -2,27 +2,13 @@ import { nanoid } from 'nanoid'
 
 const Skills = () => {
     const skills = [
-        {
-            name: "HTML",
-        }, 
-        {
-            name:"NextJs"
-        }, 
-        {
-            name:"CSS/SCSS"
-        }, 
-        {
-            name:"Strapi"
-        }, 
-        {
-            name:"Javascript"
-        }, 
-        {
-            name:"Git"
-        }, 
-        {
-            name:"React"
-        }
+        {name: "HTML",},
+        {name: "NextJs"},
+        {name: "CSS/SCSS"},
+        {name: "Strapi"},
+        {name: "Javascript"},
+        {name: "Git"},
+        {name: "React"}
 
     ]
 
@@ -30,7 +16,6 @@ const Skills = () => {
         return (
             <div key={nanoid()} className="skill">
                 <h4>{skill.name}</h4>
-                <div>{skill?.icon}</div>
             </div>
         )
     })
