@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaWhatsapp } from "react-icons/fa"
 import { TbBrandTelegram } from "react-icons/tb"
-
 const Info = () => {
     return (
         <section className="info">
@@ -10,7 +9,7 @@ const Info = () => {
                 src="/images/me.svg"
                 alt="Ramazan Ramazanov"
                 className="info-me-photo"
-                priority
+                priority={true}
                 width={235}
                 height={280}
             />
