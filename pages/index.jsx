@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Info from './components/Info'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
