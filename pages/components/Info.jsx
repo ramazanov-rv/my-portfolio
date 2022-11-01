@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa"
+import { FaGithub, FaWhatsapp } from "react-icons/fa"
 import { TbBrandTelegram } from "react-icons/tb"
 
 const Info = () => {
@@ -20,17 +20,29 @@ const Info = () => {
             </div>
             <ul className="media-links">
                 <li>
-                    <Link href="/" className="media-link">
+                    <Link 
+                        target="_blank" 
+                        href="https://t.me/airtribunal"
+                        className="media-link"
+                    >
                         <TbBrandTelegram className="media-icon" />
                     </Link>
                 </li>
                 <li>
-                    <Link href="/" className="media-link">
-                        <FaInstagram className="media-icon" />
+                    <Link 
+                        href="https://github.com/Airtribunal" 
+                        target="_blank" 
+                        className="media-link"
+                    >
+                        <FaGithub className="media-icon" />
                     </Link>
                 </li>
                 <li>
-                    <Link href="/" className="media-link">
+                    <Link 
+                        href="https://wa.me/9322488005" 
+                        className="media-link"
+                        target="_blank"
+                    >
                         <FaWhatsapp className="media-icon" />
                     </Link>
                 </li>
