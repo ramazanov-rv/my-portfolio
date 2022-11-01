@@ -7,7 +7,7 @@ const Info = () => {
     return (
         <section className="info">
             <Image
-                src="/images/me.png"
+                src="/images/me.svg"
                 alt="Ramazan Ramazanov"
                 className="info-me-photo"
                 priority
