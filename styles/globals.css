@@ -380,11 +380,16 @@ section {
   color: var(--mainWhite);
 
   cursor: pointer;
-  transition: color var(--mainTransition);
 }
 
-.error-button:hover {
+.error-button:hover .error-link {
   color: var(--mainBackground);
+}
+
+.error-link {
+  transition: color var(--mainTransition);
+  text-decoration: none;
+  color: var(--mainWhite);
 }
 
 
