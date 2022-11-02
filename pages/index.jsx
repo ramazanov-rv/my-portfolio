@@ -6,6 +6,7 @@ import Info from './components/Info'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
+import SyncLoader from "react-spinners/SyncLoader"
 
 export default function Home() {
   // Preloader
@@ -82,28 +83,34 @@ export default function Home() {
       </Head>
       {isLoading ?
         <div className="loader">
-          <div></div>
+          <SyncLoader
+            color="#F36C31"
+            cssOverride={{}}
+            loading
+            size={20}
+            speedMultiplier={1.2}
+          />
         </div>
-        : 
+        :
         <>
           <header className='header'>
-        <Navbar
-          isActive={isActiveNav}
-          handleNav={handleActiveNav}
-          handleNavClosing={handleNavClosing}
-          navList={navLinks}
-        />
-      </header>
-      <main className="container">
-        <Info />
-        <Skills
-          skillsArray={skillsArray}
-        />
-        <Projects />
-      </main>
+            <Navbar
+              isActive={isActiveNav}
+              handleNav={handleActiveNav}
+              handleNavClosing={handleNavClosing}
+              navList={navLinks}
+            />
+          </header>
+          <main className="container">
+            <Info />
+            <Skills
+              skillsArray={skillsArray}
+            />
+            <Projects />
+          </main>
         </>
       }
-      
+
     </div>
   )
 }

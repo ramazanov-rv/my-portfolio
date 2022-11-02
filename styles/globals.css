@@ -131,14 +131,14 @@ h6 {
 
 }
 
-.loader div{
+/* .loader div{
   border-radius: 50%;
   height: 100px;
   width: 100px;
   background: conic-gradient(from 180deg at 50% 50%, #F36C31 0deg, #F36C31 104.37deg, rgba(255, 116, 56, 0) 360deg);
 
   animation: spin 2s linear infinite;
-}
+} */
 
 @keyframes spin {
   from {
