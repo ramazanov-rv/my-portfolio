@@ -16,7 +16,7 @@ export default function Home() {
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
-    }, 2000)
+    }, 1000)
   }, [])
 
   // Handle Mobile Navigation
