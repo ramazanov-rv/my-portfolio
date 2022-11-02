@@ -8,6 +8,16 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 
 export default function Home() {
+  // Preloader
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+  }, [])
+
   // Handle Mobile Navigation
   const [isActiveNav, setIsActiveNav] = useState(false)
 
@@ -34,8 +44,8 @@ export default function Home() {
   const navLinks = navigation.map((navLink) => {
     return (
       <li key={nanoid()}>
-        <Link 
-          className="nav-link" 
+        <Link
+          className="nav-link"
           href={navLink.to}
           onClick={handleNavClosing}
         >
@@ -70,7 +80,13 @@ export default function Home() {
       <Head>
         <title>Ramazanov | Web Developer</title>
       </Head>
-      <header className='header'>
+      {isLoading ?
+        <div className="loader">
+          <div></div>
+        </div>
+        : 
+        <>
+          <header className='header'>
         <Navbar
           isActive={isActiveNav}
           handleNav={handleActiveNav}
@@ -85,6 +101,9 @@ export default function Home() {
         />
         <Projects />
       </main>
+        </>
+      }
+      
     </div>
   )
 }

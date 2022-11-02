@@ -31,7 +31,6 @@ body {
   background-color: var(--mainBackground);
   font-family: 'Montserrat', sans-serif;
   scroll-behavior: smooth;
-
 }
 
 h1,
@@ -121,6 +120,33 @@ h6 {
   border-radius: var(--mainBorderRadius);
 
   transition: all var(--mainTransition);
+  cursor: pointer;
+}
+
+.loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.loader div{
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  background: conic-gradient(from 180deg at 50% 50%, #F36C31 0deg, #F36C31 104.37deg, rgba(255, 116, 56, 0) 360deg);
+
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Info */
