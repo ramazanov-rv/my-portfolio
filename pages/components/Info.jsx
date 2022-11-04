@@ -2,28 +2,19 @@ import Link from "next/link";
 import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
 import { useState, useEffect } from "react";
-import SyncLoader from "react-spinners/SyncLoader";
 
 const Info = () => {
-  // Preloader
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-
-    async function load() {
-      await fetch("/");
-      setLoading(false);
-    }
-    load();
-  }, []);
 
   return (
     <>
-      <div className={loading ? "loader" : "loader hide"}>
-        <SyncLoader color="#F36C31" loading size={20} speedMultiplier={1.2} />
-      </div>
       <section className="info">
-        <img src={"/images/me.svg"} alt="Ramazan Ramazanov" className="info-me-photo" />
+        <img 
+          src="/images/me.svg" 
+          alt="Ramazan Ramazanov" 
+          className="info-me-photo" 
+          width={235}
+          height={280}
+        />
         <div className="info-name-job">
           <h1 className="info-name">Ramazan Ramazanov</h1>
           <h3 className="info-job">Frontend Web Developer</h3>

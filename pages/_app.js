@@ -1,9 +1,34 @@
+import { useState, useEffect } from "react";
 import "../styles/globals.css";
+import SyncLoader from "react-spinners/SyncLoader";
 
 function MyApp({ Component, pageProps }) {
+  // Preloader
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      async function load() {
+        const data = await fetch("/images/me.svg");
+        if (data.statusText == "OK") {
+          setLoading(false);
+        } else {
+          setLoading(true)
+        }
+      }
+      load();
+    }, 500);
+  }, []);
+
   return (
     <>
-      <Component {...pageProps} />
+      {loading ? (
+        <div className="loader">
+          <SyncLoader color="#F36C31" loading size={20} speedMultiplier={1.2} />
+        </div>
+      ) : (
+        <Component {...pageProps} />
+      )}
     </>
   );
 }
