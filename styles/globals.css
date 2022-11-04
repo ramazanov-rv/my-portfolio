@@ -268,7 +268,7 @@ section {
 }
 
 .skills-container.animate .skill::after {
-  animation: skill 2s forwards;
+  animation: skill 1s forwards ease-in;
   
 }
 
@@ -307,7 +307,7 @@ section {
 }
 
 .card.animate {
-  animation: card 2s forwards;
+  animation: card 1.25s forwards ease;
 }
 
 @keyframes card {
@@ -479,6 +479,12 @@ section {
   display: none;
 }
 
+/* About */
+.about-me {
+  font-weight: 300;
+  font-size: 1.15rem;
+}
+
 /* Media */
 @media (max-width: 1100px) {
 
@@ -537,6 +543,11 @@ section {
 
   .bars.active {
     background-color: var(--mainBackground);
+  }
+
+  /* About */ 
+  .about-me {
+    font-size: 1rem;
   }
 }
 

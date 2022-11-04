@@ -6,6 +6,7 @@ import Info from "./components/Info";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import About from "./components/About";
 // import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
@@ -27,8 +28,8 @@ export default function Home() {
   // Navigation Links
   const navigation = [
     { name: "home", to: "/" },
-    { name: "skills", to: "/" },
-    { name: "projects", to: "#projects" },
+    { name: "projects", to: "/#projects" },
+    { name: "about", to: "/" },
     { name: "contact", to: "/" },
   ];
 
@@ -80,6 +81,7 @@ export default function Home() {
         <Info />
         <Skills skillsArray={skillsArray} />
         <Projects />
+        <About />
       </main>
     </div>
   );
