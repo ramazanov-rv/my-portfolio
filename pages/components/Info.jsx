@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
-import { useState, useEffect } from "react";
 
 const Info = () => {
 
