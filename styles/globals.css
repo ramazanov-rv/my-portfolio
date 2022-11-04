@@ -463,7 +463,7 @@ section {
 }
 
 .about.animate {
-  animation: about 1.5s forwards;
+  animation: about 1.5s forwards ease;
   animation-delay: .25s;
 }
 
