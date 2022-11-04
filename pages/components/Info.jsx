@@ -9,7 +9,7 @@ const Info = () => {
   const [loading, setLoading] = useState(true);
 
   async function load() {
-    const img = await fetch("https://airportfolio.vercel.app//images/me.svg");
+    const img = await fetch("https://airportfolio.vercel.app/images/me.svg");
     setLoading(false);
     return img;
   }
