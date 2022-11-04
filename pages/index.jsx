@@ -6,6 +6,7 @@ import Info from "./components/Info";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
   // Handle Mobile Navigation
@@ -42,6 +43,7 @@ export default function Home() {
   });
 
   // Skills
+
   const skills = [
     { name: "HTML" },
     { name: "NextJs" },
@@ -54,7 +56,8 @@ export default function Home() {
 
   let skillsArray = skills.map((skill) => {
     return (
-      <div key={nanoid()} className="skill">
+      <div 
+        key={nanoid()} className="skill">
         <h4>{skill.name}</h4>
       </div>
     );

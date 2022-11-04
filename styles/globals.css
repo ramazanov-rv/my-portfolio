@@ -209,7 +209,7 @@ section {
 .media-links li:nth-child(3) {
   opacity: 0;
   visibility: hidden;
-  
+
   animation: slide-up 1.5s forwards;
   animation-delay: 1.3s;
 }
@@ -268,6 +268,22 @@ section {
   top: 100%;
 }
 
+.skills-container.animate .skill::after {
+  animation: skill 2s forwards;
+  
+}
+
+
+@keyframes skill {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 /* Projects */
 .projects-container {
   display: grid;
@@ -288,6 +304,23 @@ section {
 
   transition: transform var(--mainTransition);
   border: 3px solid var(--mainColor);
+}
+
+.card.animate {
+  opacity: 0;
+  animation: card 2s forwards;
+}
+
+@keyframes card {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }
 
 .card-content {
@@ -497,7 +530,7 @@ section {
 
   .bars {
     visibility: hidden;
-    
+
     display: block;
     animation: fade-in 1s forwards;
     animation-delay: 1.75s;
