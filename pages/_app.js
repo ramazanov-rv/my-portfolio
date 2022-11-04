@@ -1,29 +1,9 @@
 import "../styles/globals.css";
-import SyncLoader from "react-spinners/SyncLoader";
-import { useState, useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
   return (
     <>
-      {!loading ? (
-        <Component {...pageProps} />
-      ) : (
-        <div className="loader">
-          <SyncLoader
-            color="#F36C31"
-            cssOverride={{}}
-            loading
-            size={20}
-            speedMultiplier={1.2}
-          />
-        </div>
-      )}
+      <Component {...pageProps} />
     </>
   );
 }
