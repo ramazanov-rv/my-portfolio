@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 
 const Projects = () => {
-  const { ref: FRef, inView: FInView, entry } = useInView();
+  const { ref: FRef, inView: FInView, triggerOnce } = useInView();
   const { ref: SRef, inView: SinView } = useInView();
   const { ref: TRef, inView: TinView } = useInView();
 

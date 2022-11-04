@@ -8,16 +8,14 @@ const Info = () => {
   // Preloader
   const [loading, setLoading] = useState(true);
 
-  const link = "/images/me.svg";
+  useEffect(() => {
 
-  async function load(e) {
-    const data = await fetch(e);
-    setLoading(false);
-    const img = data.url;
-    return img;
-  }
-
-  load(link);
+    async function load() {
+      await fetch("/");
+      setLoading(false);
+    }
+    load();
+  }, []);
 
   return (
     <>
@@ -25,7 +23,7 @@ const Info = () => {
         <SyncLoader color="#F36C31" loading size={20} speedMultiplier={1.2} />
       </div>
       <section className="info">
-        <img src={link} alt="Ramazan Ramazanov" className="info-me-photo" />
+        <img src={"/images/me.svg"} alt="Ramazan Ramazanov" className="info-me-photo" />
         <div className="info-name-job">
           <h1 className="info-name">Ramazan Ramazanov</h1>
           <h3 className="info-job">Frontend Web Developer</h3>

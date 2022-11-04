@@ -133,7 +133,7 @@ h6 {
 
 /* Info */
 section {
-  padding: 5em 0;
+  padding: 5.25em 0;
   margin: 0 1rem;
 }
 
@@ -269,7 +269,7 @@ section {
 
 .skills-container.animate .skill::after {
   animation: skill 1s forwards ease-in;
-  
+
 }
 
 /* Projects */
@@ -295,9 +295,19 @@ section {
   border: 3px solid var(--mainColor);
 }
 
-.card.animate {
+.card.animate:nth-child(1) {
   animation: card 1.25s forwards ease;
-  animation-delay: .25s;
+  animation-delay: .5s;
+}
+
+.card.animate:nth-child(2) {
+  animation: card 1.25s forwards ease;
+  animation-delay: .7s;
+}
+
+.card.animate:nth-child(3) {
+  animation: card 1.25s forwards ease;
+  animation-delay: .9s;
 }
 
 .card-content {
@@ -458,16 +468,18 @@ section {
 }
 
 /* About */
-.about {
-  opacity: 0;
+.about-title {
+  opacity: 1;
 }
 
-.about.animate {
+.about-me.animate {
   animation: about 1.5s forwards ease;
-  animation-delay: .25s;
+  animation-delay: .3s;
 }
 
 .about-me {
+  max-width: 1000px;
+  opacity: 0;
   font-weight: 300;
   font-size: 1.15rem;
 }
@@ -555,7 +567,20 @@ label {
     background-color: var(--mainBackground);
   }
 
-  /* About */ 
+  /* Projects Cards */
+  .card.animate:nth-child(1) {
+    animation-delay: .2s;
+  }
+
+  .card.animate:nth-child(2) {
+    animation-delay: .4s;
+  }
+
+  .card.animate:nth-child(3) {
+    animation-delay: .6s;
+  }
+
+  /* About */
   .about-me {
     font-size: 1rem;
   }
@@ -622,11 +647,10 @@ label {
 @keyframes about {
   0% {
     opacity: 0;
-    filter: blur(3px);
-    transform: translateX(-70%);
+    transform: translateX(-50%);
   }
+
   100% {
-    filter: blur(0);
     opacity: 1;
     transform: translateX(0);
   }

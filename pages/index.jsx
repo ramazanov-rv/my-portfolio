@@ -29,7 +29,7 @@ export default function Home() {
   const navigation = [
     { name: "home", to: "/" },
     { name: "projects", to: "/#projects" },
-    { name: "about", to: "/" },
+    { name: "about", to: "#about" },
     { name: "contact", to: "/" },
   ];
 
