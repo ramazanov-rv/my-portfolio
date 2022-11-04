@@ -272,17 +272,6 @@ section {
   
 }
 
-
-@keyframes skill {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 100%;
-  }
-}
-
 /* Projects */
 .projects-container {
   display: grid;
@@ -308,18 +297,7 @@ section {
 
 .card.animate {
   animation: card 1.25s forwards ease;
-}
-
-@keyframes card {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0%);
-  }
+  animation-delay: .25s;
 }
 
 .card-content {
@@ -480,10 +458,42 @@ section {
 }
 
 /* About */
+.about {
+  opacity: 0;
+}
+
+.about.animate {
+  animation: about 1.5s forwards;
+  animation-delay: .25s;
+}
+
 .about-me {
   font-weight: 300;
   font-size: 1.15rem;
 }
+
+/* Contact */
+input {
+  position: relative;
+  outline: none;
+  padding: .8rem .5rem;
+}
+
+label {
+  color: var(--mainBackground);
+  padding: .78rem;
+
+  position: absolute;
+  z-index: 9;
+}
+
+#message {
+  padding: .75rem .5rem;
+
+  outline: none;
+  resize: none;
+}
+
 
 /* Media */
 @media (max-width: 1100px) {
@@ -584,5 +594,40 @@ section {
     opacity: 1;
     transform: translateY(0%);
     visibility: visible;
+  }
+}
+
+@keyframes card {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes skill {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes about {
+  0% {
+    opacity: 0;
+    filter: blur(3px);
+    transform: translateX(-70%);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }

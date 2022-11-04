@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import About from "./components/About";
-// import { v4 as uuidv4 } from "uuid";
+import Contact from "./components/Contact";
 
 export default function Home() {
   // Handle Mobile Navigation
@@ -82,6 +82,7 @@ export default function Home() {
         <Skills skillsArray={skillsArray} />
         <Projects />
         <About />
+        <Contact />
       </main>
     </div>
   );
