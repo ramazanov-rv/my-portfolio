@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     setTimeout(() => {
       async function load() {
-        const data = await fetch("/");
+        const data = await fetch("/images/me.svg");
         console.log(data);
         if (data.ok) {
           setLoading(false);
