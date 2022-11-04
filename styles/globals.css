@@ -255,7 +255,6 @@ section {
 .skill::after {
   content: "";
   height: 10px;
-  width: 100%;
   max-width: 400px;
   background: linear-gradient(to right, var(--mainColor) 100%, var(--mainWhite) 0%);
 
@@ -296,6 +295,7 @@ section {
 .card {
   width: 100%;
   max-width: 500px;
+  opacity: 0;
 
   background: var(--mainBackground);
   border-radius: var(--mainBorderRadius);
@@ -307,7 +307,6 @@ section {
 }
 
 .card.animate {
-  opacity: 0;
   animation: card 2s forwards;
 }
 

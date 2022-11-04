@@ -6,7 +6,7 @@ import Info from "./components/Info";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
   // Handle Mobile Navigation
