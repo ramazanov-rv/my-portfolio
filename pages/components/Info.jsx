@@ -2,21 +2,21 @@ import Link from "next/link";
 import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
 
-const Info = () => {
+const Info = ({img, name, job}) => {
 
   return (
     <>
       <section className="info">
         <img 
-          src="/images/me.svg" 
-          alt="Ramazan Ramazanov" 
+          src={img} 
+          alt={name} 
           className="info-me-photo" 
           width={235}
           height={280}
         />
         <div className="info-name-job">
-          <h1 className="info-name">Ramazan Ramazanov</h1>
-          <h3 className="info-job">Frontend Web Developer</h3>
+          <h1 className="info-name">{name}</h1>
+          <h3 className="info-job">{job}</h3>
         </div>
         <ul className="media-links">
           <li>
