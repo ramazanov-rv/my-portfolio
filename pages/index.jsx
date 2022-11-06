@@ -14,9 +14,9 @@ import ProjectCard from "./components/ProjectCard";
 import Footer from "./components/Footer";
 
 export async function getStaticProps() {
-  const projectsResp = await fetch("http://localhost:1337/api/projects");
-  const infoResp = await fetch("http://localhost:1337/api/info?populate=*");
-  const aboutResp = await fetch("http://localhost:1337/api/about")
+  const projectsResp = await fetch("http://localhost:8889/api/projects");
+  const infoResp = await fetch("http://localhost:8889/api/info?populate=*");
+  const aboutResp = await fetch("http://localhost:8889/api/about")
   return {
     props: {
       data: await projectsResp.json(),
@@ -30,7 +30,7 @@ export default function Home({ data, info, about }) {
   // Info
   const infoName = info.data.attributes.infoName;
   const infoJob = info.data.attributes.infoJob;
-  const infoImg = `http://localhost:1337${info.data.attributes.infoImg.data.attributes.url}`;
+  const infoImg = `http://localhost:8889${info.data.attributes.infoImg.data.attributes.url}`;
 
   // Projects
   const { ref, inView } = useInView();
