@@ -33,14 +33,13 @@ export default function Home({ data, info, about }) {
   const infoImg = `http://localhost:8889${info.data.attributes.infoImg.data.attributes.url}`;
 
   // Projects
-  const { ref, inView } = useInView();
-  const projectsArray = data.data.map((project, i ) => {
+  const projectsArray = data.data.map((project) => {
     return (
       <ProjectCard
-        key={project.id}
+        key={nanoid()}
         title={project.attributes.projectTitle}
         description={project.attributes.projectDescription}
-        link={project.attributes.projectLink}
+        // link={project.attributes.projectLink}
       />
     );
   });
