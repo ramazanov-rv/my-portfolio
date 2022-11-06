@@ -11,6 +11,7 @@ import Skills from "./components/Skills";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ProjectCard from "./components/ProjectCard";
+import Footer from "./components/Footer";
 
 export async function getStaticProps() {
   const projectsResp = await fetch("http://localhost:1337/api/projects");
@@ -102,9 +103,6 @@ export default function Home({ data, info, about }) {
 
   return (
     <div>
-      <Head>
-        <title>Ramazanov | Web Developer</title>
-      </Head>
       <header className="header">
         <Navbar
           isActive={isActiveNav}
@@ -122,6 +120,9 @@ export default function Home({ data, info, about }) {
         />
         <Contact />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

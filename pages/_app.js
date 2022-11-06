@@ -1,17 +1,15 @@
-import { useState, useEffect } from "react";
 import "../styles/globals.css";
-import SyncLoader from "react-spinners/SyncLoader";
+// import SyncLoader from "react-spinners/SyncLoader";
+
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
-
   return (
     <>
-      {/* {loading ? (
-        <div className="loader">
-          <SyncLoader color="#F36C31" loading size={20} speedMultiplier={1.2} />
-        </div>
-      ) : ( */}
-        <Component {...pageProps} />
+      <Head>
+        <title>Ramazanov | Web Developer</title>
+      </Head>
+      <Component {...pageProps} />
     </>
   );
 }
