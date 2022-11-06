@@ -67,7 +67,7 @@ export default function Home({ data, info, about }) {
     { name: "home", to: "/" },
     { name: "projects", to: "/#projects" },
     { name: "about", to: "#about" },
-    { name: "contact", to: "/" },
+    { name: "contact", to: "#contact" },
   ];
 
   const navLinks = navigation.map((navLink) => {

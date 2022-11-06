@@ -20,6 +20,11 @@
   color: #fefefe;
 }
 
+::placeholder {
+  color: var(--mainWhite);
+  opacity: .9;
+}
+
 :root {
   --mainColor: #F36C31;
   --mainBackground: #000;
@@ -314,7 +319,7 @@ section {
   --padding: 2rem;
   padding: var(--padding);
 
-  transform: translateY(60%);
+  transform: translateY(65%);
   transition: transform .5s ease;
 }
 
@@ -355,7 +360,7 @@ section {
   border-radius: var(--mainBorderRadius);
 
   transform: scaleX(0);
-  transition: transform .45s ease;
+  transition: transform .25s linear;
   transition-delay: .6s;
   transform-origin: left;
 
@@ -367,6 +372,7 @@ section {
 
 .card-description {
   max-width: 350px;
+  min-height: 100px;
   margin-bottom: .75em;
   line-height: 1.5;
 }
@@ -485,28 +491,67 @@ section {
 }
 
 /* Contact */
-input {
-  position: relative;
-  outline: none;
-  padding: .8rem .5rem;
+.contact-form div {
+  margin: 1.25rem 0;
 }
 
-label {
-  color: var(--mainBackground);
-  padding: .78rem;
+input {
+  background-color: var(--mainBackground);
+  color: var(--mainWhite);
+  outline: none;
+  padding: .8rem 1rem;
+  width: 100%;
+  max-width: 300px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
 
-  position: absolute;
-  z-index: 9;
+  border-radius: var(--mainBorderRadius);
+
+  border: 2px solid var(--mainColor);
+}
+
+input:focus {
+  background-color: var(--mainBackground);
+  color: var(--mainWhite);
 }
 
 #message {
-  padding: .75rem .5rem;
+  background-color: var(--mainBackground);
+  color: var(--mainWhite);
+  border-radius: var(--mainBorderRadius);
+  border: 2px solid var(--mainColor);
+
+  padding: .75rem 1rem;
+  width: 100%;
+  max-width: 400px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
 
   outline: none;
   resize: none;
 }
 
+.submit-btn {
+  padding: 1rem 4rem;
 
+  border: none;
+  background-color: var(--mainColor);
+  color: var(--mainWhite);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.05rem;
+
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: all .2s ease-in;
+}
+
+.submit-btn:hover {
+  color: var(--mainBackground);
+}
 /* Media */
 @media (max-width: 1100px) {
 
