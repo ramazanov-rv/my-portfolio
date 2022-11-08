@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { nanoid } from "nanoid";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { SyncLoader } from "react-spinners";
 
 import Info from "./components/Info";
 import Navbar from "./components/Navbar";
@@ -15,6 +16,7 @@ export async function getStaticProps() {
   const projectsResp = await fetch("http://localhost:8889/api/projects");
   const infoResp = await fetch("http://localhost:8889/api/info?populate=*");
   const aboutResp = await fetch("http://localhost:8889/api/about");
+  // const infoImg = await fetch(`http://localhost:8889${infoResp.data.attributes.infoImg.data.attributes.url}`);
 
   return {
     props: {
@@ -22,6 +24,7 @@ export async function getStaticProps() {
       info: await infoResp.json(),
       about: await aboutResp.json(),
     },
+    revalidate: 40,
   };
 }
 
@@ -29,15 +32,14 @@ export default function Home({ data, info, about }) {
   // Info
   const infoName = info.data.attributes.infoName;
   const infoJob = info.data.attributes.infoJob;
-  // const infoImg = `http://localhost:8889${info.data.attributes.infoImg.data.attributes.url}`;
-
   // Projects
   const projectsArray = data.data.map((project) => {
     return (
       <ProjectCard
         key={nanoid()}
         title={project.attributes.projectTitle}
-        description={project.attributes.projectDescription} // link={project.attributes.projectLink}
+        description={project.attributes.projectDescription}
+        link={project.attributes.projectLink}
       />
     );
   });
@@ -99,7 +101,7 @@ export default function Home({ data, info, about }) {
   });
 
   return (
-    <div>
+    <>
       <header className="header">
         <Navbar
           isActive={isActiveNav}
@@ -118,6 +120,6 @@ export default function Home({ data, info, about }) {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </>
   );
 }
