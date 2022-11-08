@@ -1,16 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
 
-const Info = ({img, name, job}) => {
-
+const Info = ({ name, job }) => {
   return (
     <>
       <section className="info">
-        <img 
-          src={img} 
-          alt={name} 
-          className="info-me-photo" 
+        <Image
+          src="/images/me.svg"
+          alt={name}
+          className="info-me-photo"
           width={235}
           height={280}
         />

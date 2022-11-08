@@ -1,8 +1,6 @@
-import Head from "next/head";
 import Link from "next/link";
 import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
 
 import Info from "./components/Info";
 import Navbar from "./components/Navbar";
@@ -16,12 +14,13 @@ import Footer from "./components/Footer";
 export async function getStaticProps() {
   const projectsResp = await fetch("http://localhost:8889/api/projects");
   const infoResp = await fetch("http://localhost:8889/api/info?populate=*");
-  const aboutResp = await fetch("http://localhost:8889/api/about")
+  const aboutResp = await fetch("http://localhost:8889/api/about");
+
   return {
     props: {
       data: await projectsResp.json(),
       info: await infoResp.json(),
-      about: await aboutResp.json()
+      about: await aboutResp.json(),
     },
   };
 }
@@ -30,7 +29,7 @@ export default function Home({ data, info, about }) {
   // Info
   const infoName = info.data.attributes.infoName;
   const infoJob = info.data.attributes.infoJob;
-  const infoImg = `http://localhost:8889${info.data.attributes.infoImg.data.attributes.url}`;
+  // const infoImg = `http://localhost:8889${info.data.attributes.infoImg.data.attributes.url}`;
 
   // Projects
   const projectsArray = data.data.map((project) => {
@@ -38,14 +37,13 @@ export default function Home({ data, info, about }) {
       <ProjectCard
         key={nanoid()}
         title={project.attributes.projectTitle}
-        description={project.attributes.projectDescription}
-        // link={project.attributes.projectLink}
+        description={project.attributes.projectDescription} // link={project.attributes.projectLink}
       />
     );
   });
 
-  // About 
-  const aboutText = about.data.attributes.aboutDescription
+  // About
+  const aboutText = about.data.attributes.aboutDescription;
 
   // Handle Mobile Navigation
   const [isActiveNav, setIsActiveNav] = useState(false);
@@ -111,12 +109,10 @@ export default function Home({ data, info, about }) {
         />
       </header>
       <main className="container">
-        <Info name={infoName} job={infoJob} img={infoImg} />
+        <Info name={infoName} job={infoJob} />
         <Skills skillsArray={skillsArray} />
         <Projects projectsArray={projectsArray} />
-        <About 
-          aboutText={aboutText}
-        />
+        <About aboutText={aboutText} />
         <Contact />
       </main>
       <footer>

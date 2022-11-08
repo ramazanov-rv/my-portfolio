@@ -1,12 +1,21 @@
 import { useInView } from "react-intersection-observer";
 
 const Skills = ({ skillsArray }) => {
-  const { ref: refSkill, inView: inViewSkill } = useInView();
+  const { ref: refSkill, inView: inViewSkill } = useInView({
+    triggerOnce: true,
+  });
 
   return (
-    <section  className="skills">
+    <section className="skills">
       <h1 className="section-title">Skills</h1>
-      <div ref={refSkill} className={!inViewSkill ? "skills-container" : "skills-container animate"}>{skillsArray}</div>
+      <div
+        ref={refSkill}
+        className={
+          !inViewSkill ? "skills-container" : "skills-container animate"
+        }
+      >
+        {skillsArray}
+      </div>
     </section>
   );
 };
