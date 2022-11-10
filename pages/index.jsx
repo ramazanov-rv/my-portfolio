@@ -2,6 +2,7 @@ import Link from "next/link";
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import { SyncLoader } from "react-spinners";
+import { useInView } from "react-intersection-observer";
 
 import Info from "./components/Info";
 import Navbar from "./components/Navbar";
@@ -32,11 +33,12 @@ export default function Home({ data, info, about }) {
   // Info
   const infoName = info.data.attributes.infoName;
   const infoJob = info.data.attributes.infoJob;
+
   // Projects
   const projectsArray = data.data.map((project) => {
     return (
       <ProjectCard
-        key={nanoid()}
+        key={project.id}
         title={project.attributes.projectTitle}
         description={project.attributes.projectDescription}
         link={project.attributes.projectLink}
@@ -46,6 +48,9 @@ export default function Home({ data, info, about }) {
 
   // About
   const aboutText = about.data.attributes.aboutDescription;
+  const { ref: aboutRef, inView: aboutInView } = useInView({
+    triggerOnce: true,
+  });
 
   // Handle Mobile Navigation
   const [isActiveNav, setIsActiveNav] = useState(false);
@@ -81,7 +86,6 @@ export default function Home({ data, info, about }) {
   });
 
   // Skills
-
   const skills = [
     { name: "HTML" },
     { name: "NextJs" },
@@ -100,6 +104,15 @@ export default function Home({ data, info, about }) {
     );
   });
 
+  const { ref: refSkill, inView: inViewSkill } = useInView({
+    triggerOnce: true,
+  });
+
+  // Contact
+  const { ref: refContact, inView: inViewContact } = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <>
       <header className="header">
@@ -112,10 +125,18 @@ export default function Home({ data, info, about }) {
       </header>
       <main className="container">
         <Info name={infoName} job={infoJob} />
-        <Skills skillsArray={skillsArray} />
+        <Skills
+          inViewSkill={inViewSkill}
+          refSkill={refSkill}
+          skillsArray={skillsArray}
+        />
         <Projects projectsArray={projectsArray} />
-        <About aboutText={aboutText} />
-        <Contact />
+        <About
+          aboutRef={aboutRef}
+          aboutInView={aboutInView}
+          aboutText={aboutText}
+        />
+        <Contact refContact={refContact} inViewContact={inViewContact} />
       </main>
       <footer>
         <Footer />

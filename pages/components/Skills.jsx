@@ -1,10 +1,4 @@
-import { useInView } from "react-intersection-observer";
-
-const Skills = ({ skillsArray }) => {
-  const { ref: refSkill, inView: inViewSkill } = useInView({
-    triggerOnce: true,
-  });
-
+const Skills = ({ skillsArray, inViewSkill, refSkill }) => {
   return (
     <section className="skills">
       <h1 className="section-title">Skills</h1>
