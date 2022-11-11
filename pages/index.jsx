@@ -14,7 +14,9 @@ import ProjectCard from "./components/ProjectCard";
 import Footer from "./components/Footer";
 
 export async function getStaticProps() {
-  const projectsResp = await fetch("http://localhost:8889/api/projects");
+  const projectsResp = await fetch(
+    "http://localhost:8889/api/projects?populate=*"
+  );
   const infoResp = await fetch("http://localhost:8889/api/info?populate=*");
   const aboutResp = await fetch("http://localhost:8889/api/about");
   // const infoImg = await fetch(`http://localhost:8889${infoResp.data.attributes.infoImg.data.attributes.url}`);
@@ -39,6 +41,7 @@ export default function Home({ data, info, about }) {
     return (
       <ProjectCard
         key={project.id}
+        img={`http://localhost:8889${project.attributes.projectImg.data.attributes.url}`}
         title={project.attributes.projectTitle}
         description={project.attributes.projectDescription}
         link={project.attributes.projectLink}

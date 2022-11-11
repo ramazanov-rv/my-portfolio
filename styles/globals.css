@@ -281,13 +281,15 @@ section {
 /* Projects */
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(19em, 1fr));
   grid-column-gap: 1rem;
   grid-row-gap: 2rem;
   place-content: center;
 }
 
 .card {
+  position: relative;
+
   width: 100%;
   opacity: 0;
   height: 100%;
@@ -395,6 +397,25 @@ section {
 
 .card:hover .card-content {
   transform: translateY(0);
+}
+
+.project-img {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  transform: translateX(-14%);
+
+  background-color: var(--mainBackground);
+  opacity: .5;
+
+  transition: .4s;
+}
+
+.card:hover .project-img{
+  opacity: .2;
 }
 
 .card-title {
