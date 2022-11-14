@@ -1,6 +1,4 @@
 import "../styles/globals.css";
-// import SyncLoader from "react-spinners/SyncLoader";
-
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
@@ -8,6 +6,17 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Ramazanov | Web Developer</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta
+          name="keywords"
+          content="ramazan ramazanov, ramazanov ramazan, fronten, web dev, web development, ramazanov frontend, ramazan frontend, ramazan web"
+        />
+        <meta name="author" content="Ramazan Ramazanov" />
       </Head>
       <Component {...pageProps} />
     </>

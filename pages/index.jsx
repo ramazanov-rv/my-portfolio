@@ -1,6 +1,5 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
-import { SyncLoader } from "react-spinners";
 import { useInView } from "react-intersection-observer";
 
 import Info from "./components/Info";

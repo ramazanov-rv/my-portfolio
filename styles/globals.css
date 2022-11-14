@@ -26,9 +26,9 @@
 }
 
 :root {
-  --mainColor: #F36C31;
-  --mainBackground: #000;
-  --mainWhite: #FFF;
+  --mainColor: #F36C31 !important;
+  --mainBackground: #000 !important;
+  --mainWhite: #FFF !important;
   --mainTransition: .2s ease-in-out;
   --mainBorderRadius: 20px;
 }
@@ -407,8 +407,6 @@ section {
   left: 0;
   height: 100%;
   transform: translateX(-20%);
-  background-attachment: fixed;
-  background-position: center;
   background-color: var(--mainBackground);
   object-fit: contain;
   opacity: .5;
