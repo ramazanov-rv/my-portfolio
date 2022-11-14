@@ -406,15 +406,17 @@ section {
   right: 0;
   left: 0;
   height: 100%;
-  transform: translateX(-14%);
-
+  transform: translateX(-20%);
+  background-attachment: fixed;
+  background-position: center;
   background-color: var(--mainBackground);
+  object-fit: contain;
   opacity: .5;
 
   transition: .4s;
 }
 
-.card:hover .project-img{
+.card:hover .project-img {
   opacity: .2;
 }
 
@@ -800,7 +802,16 @@ footer {
   }
 }
 
+@media (max-width: 680px) {
+
+  /* Project Card */
+  .project-img {
+    transform: translateX(0%);
+  }
+}
+
 @media (max-width: 540px) {
+  /* Navbar */
   .nav-links {
     width: 50%;
     margin: 0 0 0 auto;
@@ -842,6 +853,10 @@ footer {
   }
 
   /* Projects Cards */
+  .project-img {
+    transform: translateX(-25%);
+  }
+
   .card.animate:nth-child(1) {
     animation: card 1.25s forwards ease;
     animation-delay: .5s;

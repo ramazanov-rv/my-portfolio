@@ -15,11 +15,12 @@ import Footer from "./components/Footer";
 
 export async function getStaticProps() {
   const projectsResp = await fetch(
-    "http://localhost:8889/api/projects?populate=*"
+    "http://95.182.123.249:8889/api/projects?populate=*"
   );
-  const infoResp = await fetch("http://localhost:8889/api/info?populate=*");
-  const aboutResp = await fetch("http://localhost:8889/api/about");
-  // const infoImg = await fetch(`http://localhost:8889${infoResp.data.attributes.infoImg.data.attributes.url}`);
+  const infoResp = await fetch(
+    "http://95.182.123.249:8889/api/info?populate=*"
+  );
+  const aboutResp = await fetch("http://95.182.123.249:8889/api/about");
 
   return {
     props: {
@@ -41,7 +42,7 @@ export default function Home({ data, info, about }) {
     return (
       <ProjectCard
         key={project.id}
-        img={`http://localhost:8889${project.attributes.projectImg.data.attributes.url}`}
+        img={`http://95.182.123.249:8889${project.attributes.projectImg.data.attributes.url}`}
         title={project.attributes.projectTitle}
         description={project.attributes.projectDescription}
         link={project.attributes.projectLink}
@@ -72,8 +73,8 @@ export default function Home({ data, info, about }) {
 
   // Navigation Links
   const navigation = [
-    { name: "home", to: "/" },
-    { name: "projects", to: "/#projects" },
+    { name: "home", to: "#" },
+    { name: "projects", to: "#projects" },
     { name: "about", to: "#about" },
     { name: "contact", to: "#contact" },
   ];
@@ -81,9 +82,9 @@ export default function Home({ data, info, about }) {
   const navLinks = navigation.map((navLink) => {
     return (
       <li key={nanoid()}>
-        <Link className="nav-link" href={navLink.to} onClick={handleNavClosing}>
+        <a className="nav-link" href={navLink.to} onClick={handleNavClosing}>
           {navLink.name}
-        </Link>
+        </a>
       </li>
     );
   });

@@ -4,16 +4,11 @@ import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
 
 const Info = ({ name, job }) => {
+
   return (
     <>
       <section className="info">
-        <Image
-          src="/images/me.svg"
-          alt={name}
-          className="info-me-photo"
-          width={235}
-          height={280}
-        />
+        <Image src="/images/me.svg" alt={name} className="info-me-photo" width={235} height={280} />
         <div className="info-name-job">
           <h1 className="info-name">{name}</h1>
           <h3 className="info-job">{job}</h3>
