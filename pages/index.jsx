@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import { SyncLoader } from "react-spinners";
