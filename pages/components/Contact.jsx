@@ -1,10 +1,14 @@
-const Contact = ({refContact, inViewContact}) => {
+const Contact = ({ refContact, inViewContact, handleSubmit }) => {
   return (
     <>
       <section id="contact">
-        <h1 ref={refContact} className="section-title">contact</h1>
-        <form action="/" className="contact-form">
-          <div className={!inViewContact ? "contact-item" : "contact-item animate"}>
+        <h1 ref={refContact} className="section-title">
+          contact
+        </h1>
+        <form onSubmit={handleSubmit} className="contact-form">
+          <div
+            className={!inViewContact ? "contact-item" : "contact-item animate"}
+          >
             <input
               placeholder="First Name"
               type="text"
@@ -12,7 +16,9 @@ const Contact = ({refContact, inViewContact}) => {
               className="fname"
             />
           </div>
-          <div className={!inViewContact ? "contact-item" : "contact-item animate"}>
+          <div
+            className={!inViewContact ? "contact-item" : "contact-item animate"}
+          >
             <input
               placeholder="Last Name"
               type="text"
@@ -20,7 +26,9 @@ const Contact = ({refContact, inViewContact}) => {
               className="lname"
             />
           </div>
-          <div className={!inViewContact ? "contact-item" : "contact-item animate"}>
+          <div
+            className={!inViewContact ? "contact-item" : "contact-item animate"}
+          >
             <input
               placeholder="Email"
               type="email"
@@ -28,7 +36,9 @@ const Contact = ({refContact, inViewContact}) => {
               className="mail"
             />
           </div>
-          <div className={!inViewContact ? "contact-item" : "contact-item animate"}>
+          <div
+            className={!inViewContact ? "contact-item" : "contact-item animate"}
+          >
             <textarea
               placeholder="Message"
               name="message"
@@ -37,11 +47,10 @@ const Contact = ({refContact, inViewContact}) => {
               rows="10"
             ></textarea>
           </div>
-          <div className={!inViewContact ? "contact-item" : "contact-item animate"}>
-            <button
-              onSubmit={(e) => e.preventDefault}
-              className="submit-btn"
-            >
+          <div
+            className={!inViewContact ? "contact-item" : "contact-item animate"}
+          >
+            <button onSubmit={(e) => e.preventDefault} className="submit-btn">
               Submit
             </button>
           </div>

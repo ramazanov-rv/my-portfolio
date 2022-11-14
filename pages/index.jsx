@@ -115,6 +115,10 @@ export default function Home({ data, info, about }) {
     triggerOnce: true,
   });
 
+  function handleOnSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <header className="header">
@@ -138,7 +142,11 @@ export default function Home({ data, info, about }) {
           aboutInView={aboutInView}
           aboutText={aboutText}
         />
-        <Contact refContact={refContact} inViewContact={inViewContact} />
+        <Contact
+          handleSubmit={handleOnSubmit}
+          refContact={refContact}
+          inViewContact={inViewContact}
+        />
       </main>
       <footer>
         <Footer />
