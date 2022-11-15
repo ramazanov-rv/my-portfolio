@@ -40,7 +40,7 @@ export default function Home({ data, info, about }) {
     return (
       <ProjectCard
         key={project.id}
-        img={`http://95.182.123.249:8889${project.attributes.projectImg.data.attributes.url}`}
+        img={`http://95.182.123.249:8889${project?.attributes?.projectImg?.data?.attributes?.url}`}
         title={project.attributes.projectTitle}
         description={project.attributes.projectDescription}
         link={project.attributes.projectLink}
