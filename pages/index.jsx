@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { SyncLoader } from "react-spinners";
 
 import Info from "./components/Info";
 import Navbar from "./components/Navbar";
@@ -31,6 +32,12 @@ export async function getStaticProps() {
 }
 
 export default function Home({ data, info, about }) {
+  // Loader
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   // Info
   const infoName = info.data.attributes.infoName;
   const infoJob = info.data.attributes.infoJob;
@@ -121,36 +128,50 @@ export default function Home({ data, info, about }) {
 
   return (
     <>
-      <header className="header">
-        <Navbar
-          isActive={isActiveNav}
-          handleNav={handleActiveNav}
-          handleNavClosing={handleNavClosing}
-          navList={navLinks}
-        />
-      </header>
-      <main className="container">
-        <Info name={infoName} job={infoJob} />
-        <Skills
-          inViewSkill={inViewSkill}
-          refSkill={refSkill}
-          skillsArray={skillsArray}
-        />
-        <Projects projectsArray={projectsArray} />
-        <About
-          aboutRef={aboutRef}
-          aboutInView={aboutInView}
-          aboutText={aboutText}
-        />
-        <Contact
-          handleSubmit={handleOnSubmit}
-          refContact={refContact}
-          inViewContact={inViewContact}
-        />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      {loading ? (
+        <div className="loader">
+          <SyncLoader
+            color="#F36C31"
+            loading
+            margin={3}
+            size={20}
+            speedMultiplier={1.15}
+          />
+        </div>
+      ) : (
+        <>
+          <header className="header">
+            <Navbar
+              isActive={isActiveNav}
+              handleNav={handleActiveNav}
+              handleNavClosing={handleNavClosing}
+              navList={navLinks}
+            />
+          </header>
+          <main className="container">
+            <Info name={infoName} job={infoJob} />
+            <Skills
+              inViewSkill={inViewSkill}
+              refSkill={refSkill}
+              skillsArray={skillsArray}
+            />
+            <Projects projectsArray={projectsArray} />
+            <About
+              aboutRef={aboutRef}
+              aboutInView={aboutInView}
+              aboutText={aboutText}
+            />
+            <Contact
+              handleSubmit={handleOnSubmit}
+              refContact={refContact}
+              inViewContact={inViewContact}
+            />
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </>
+      )}
     </>
   );
 }

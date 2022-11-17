@@ -71,7 +71,7 @@ h6 {
   max-width: 1230px;
   width: 100%;
   margin: 0 auto;
-  padding: 1.25rem 1.75rem;
+  padding: 1.25rem 2rem;
 
   position: fixed;
   top: 1.5em;
@@ -558,7 +558,6 @@ section {
 }
 
 .about-me {
-  max-width: 1000px;
   opacity: 0;
   font-weight: 300;
   font-size: 1.15rem;
