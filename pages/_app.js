@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta name="author" content="Ramazan Ramazanov" />
         <meta name="yandex-verification" content="5f2bae0f03e4b468" />
+        <meta name="google-site-verification" content="7Q-e-79wfOUiQ-zKPQd4CjXsFMghEE8fCrjly4RNWHk" />
       </Head>
       <Component {...pageProps} />
     </>
