@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
           content="ramazan ramazanov, ramazanov ramazan, fronten, web dev, web development, ramazanov frontend, ramazan frontend, ramazan web"
         />
         <meta name="author" content="Ramazan Ramazanov" />
+        <meta name="yandex-verification" content="5f2bae0f03e4b468" />
       </Head>
       <Component {...pageProps} />
     </>
