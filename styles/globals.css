@@ -106,7 +106,7 @@ h6 {
 
 .nav-link::after {
   content: "";
-  transform: scale(0);
+  transform: scaleX(0);
   height: 2px;
   background-color: var(--mainWhite);
 
@@ -120,7 +120,7 @@ h6 {
 }
 
 .nav-link:hover::after {
-  transform: scale(1);
+  transform: scaleX(1);
 }
 
 .bars {
