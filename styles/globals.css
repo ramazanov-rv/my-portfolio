@@ -850,6 +850,18 @@ footer {
   }
 
   /* Projects Cards */
+  .card-content {
+    transform: translateY(0);
+  }
+
+  .card-content>*:not(.card-title) {
+    opacity: 1;
+  }
+
+  .card-title::after {
+    transform: scaleX(1);
+  }
+
   .project-img {
     transform: translateX(-25%);
   }
