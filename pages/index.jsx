@@ -1,6 +1,9 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { sendContactForm } from "../lib/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Info from "./components/Info";
 import Navbar from "./components/Navbar";
@@ -10,6 +13,13 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import ProjectCard from "./components/ProjectCard";
 import Footer from "./components/Footer";
+
+const formData = {
+  name: "",
+  subject: "",
+  email: "",
+  message: "",
+};
 
 export async function getStaticProps() {
   const projectsResp = await fetch(
@@ -115,8 +125,76 @@ export default function Home({ data, info, about }) {
     triggerOnce: true,
   });
 
-  function handleOnSubmit(e) {
-    e.preventDefault();
+  // Contact Form
+  const [formState, setFormState] = useState(formData);
+  const { name, subject, email, message } = formState;
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
+
+  function handleChange({ target }) {
+    setFormState((prev) => {
+      return {
+        ...prev,
+        [target.name]: target.value,
+      };
+    });
+  }
+
+  async function handleSubmit(e) {
+    setIsLoading(true);
+    await e.preventDefault();
+    if (name == "" || subject == "" || email == "" || message == "") {
+      setIsLoading(false);
+      toast.warn("Fill every field please.", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } else {
+      try {
+        setIsSent(true);
+        await sendContactForm(formState);
+        setIsLoading(false);
+        setIsSent(false);
+        toast.success("💌 Message Sent. Thanks!", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "colored",
+        });
+        setFormState((prev) => {
+          return {
+            ...prev,
+            name: "",
+            subject: "",
+            email: "",
+            message: "",
+          };
+        });
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error);
+        toast.error("💌 Message not sent. Try later.", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    }
   }
 
   return (
@@ -143,10 +221,18 @@ export default function Home({ data, info, about }) {
           aboutText={aboutText}
         />
         <Contact
-          handleSubmit={handleOnSubmit}
+          handleSubmit={handleSubmit}
           refContact={refContact}
           inViewContact={inViewContact}
+          name={name}
+          subject={subject}
+          email={email}
+          message={message}
+          handleChange={handleChange}
+          isLoading={isLoading}
+          isSent={isSent}
         />
+        <ToastContainer />
       </main>
       <footer>
         <Footer />

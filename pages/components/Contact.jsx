@@ -1,4 +1,28 @@
-const Contact = ({ refContact, inViewContact, handleSubmit }) => {
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { CircularProgress } from "@mui/material";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#fff",
+    },
+  },
+});
+
+const Contact = (props) => {
+  const {
+    refContact,
+    inViewContact,
+    handleSubmit,
+    name,
+    subject,
+    message,
+    email,
+    handleChange,
+    isSent,
+    isLoading
+  } = props;
+
   return (
     <>
       <section id="contact">
@@ -12,28 +36,37 @@ const Contact = ({ refContact, inViewContact, handleSubmit }) => {
             <input
               placeholder="First Name"
               type="text"
-              id="fname"
+              id="name"
+              value={name}
+              name="name"
               className="fname"
+              onChange={handleChange}
             />
           </div>
           <div
             className={!inViewContact ? "contact-item" : "contact-item animate"}
           >
             <input
-              placeholder="Last Name"
+              placeholder="Subject"
               type="text"
-              id="lname"
+              id="subject"
+              value={subject}
+              name="subject"
               className="lname"
+              onChange={handleChange}
             />
           </div>
           <div
             className={!inViewContact ? "contact-item" : "contact-item animate"}
           >
             <input
-              placeholder="Email"
+              placeholder="E-mail"
               type="email"
-              id="mail"
+              id="email"
+              name="email"
+              value={email}
               className="mail"
+              onChange={handleChange}
             />
           </div>
           <div
@@ -43,15 +76,23 @@ const Contact = ({ refContact, inViewContact, handleSubmit }) => {
               placeholder="Message"
               name="message"
               id="message"
+              value={message}
               cols="30"
               rows="10"
+              onChange={handleChange}
             ></textarea>
           </div>
           <div
             className={!inViewContact ? "contact-item" : "contact-item animate"}
           >
-            <button onSubmit={(e) => e.preventDefault} className="submit-btn">
-              Submit
+            <button disabled={isSent} className="submit-btn">
+              {isLoading ? (
+                <ThemeProvider theme={theme}>
+                  <CircularProgress size={30} />
+                </ThemeProvider>
+              ) : (
+                "submit"
+              )}
             </button>
           </div>
         </form>
