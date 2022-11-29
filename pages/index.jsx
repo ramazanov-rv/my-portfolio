@@ -153,7 +153,7 @@ export default function Home({ data, info, about }) {
         pauseOnHover: false,
         draggable: true,
         progress: undefined,
-        theme: "colored",
+        theme: "dark",
       });
     } else {
       try {
@@ -169,7 +169,7 @@ export default function Home({ data, info, about }) {
           pauseOnHover: false,
           draggable: false,
           progress: undefined,
-          theme: "colored",
+          theme: "dark",
         });
         setFormState((prev) => {
           return {
@@ -191,7 +191,7 @@ export default function Home({ data, info, about }) {
           pauseOnHover: false,
           draggable: true,
           progress: undefined,
-          theme: "colored",
+          theme: "dark",
         });
       }
     }
