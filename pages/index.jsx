@@ -125,7 +125,7 @@ export default function Home({ data, info, about }) {
     email: "",
     message: "",
   };
-  
+
   const [formState, setFormState] = useState(formData);
   const { name, subject, email, message } = formState;
   const [isLoading, setIsLoading] = useState(false);
