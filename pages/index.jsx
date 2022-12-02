@@ -14,13 +14,6 @@ import Contact from "./components/Contact";
 import ProjectCard from "./components/ProjectCard";
 import Footer from "./components/Footer";
 
-const formData = {
-  name: "",
-  subject: "",
-  email: "",
-  message: "",
-};
-
 export async function getStaticProps() {
   const projectsResp = await fetch(
     "http://95.182.123.249:8889/api/projects?populate=*"
@@ -126,6 +119,13 @@ export default function Home({ data, info, about }) {
   });
 
   // Contact Form
+  const formData = {
+    name: "",
+    subject: "",
+    email: "",
+    message: "",
+  };
+  
   const [formState, setFormState] = useState(formData);
   const { name, subject, email, message } = formState;
   const [isLoading, setIsLoading] = useState(false);
