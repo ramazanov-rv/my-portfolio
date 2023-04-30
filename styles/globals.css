@@ -272,6 +272,7 @@ section {
   bottom: 0;
   right: 0;
   top: 100%;
+  opacity: 0;
 }
 
 .skills-container.animate .skill::after {
@@ -445,7 +446,6 @@ section {
   transition: transform .25s linear;
   transition-delay: .6s;
   transform-origin: left;
-
 }
 
 .card:hover .card-title::after {
@@ -473,6 +473,8 @@ section {
   cursor: pointer;
 
   transition: all .2s ease-in;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 5px #FFFFFF, -1px 2px 17px #F36C31;
 }
 
 .card-button:hover {
@@ -619,11 +621,15 @@ input {
   border-radius: var(--mainBorderRadius);
 
   border: 3px solid var(--mainColor);
+  
 }
 
 input:focus {
+  transition: all .4s ease;
   background-color: var(--mainBackground);
   color: var(--mainWhite);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 5px #FFFFFF, -1px 2px 10px #F36C31;
 }
 
 #message {
@@ -641,6 +647,13 @@ input:focus {
 
   outline: none;
   resize: none;
+
+}
+
+#message:focus {
+  transition: all .4s ease;
+  border: 3px solid rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px #ffffff, -1px 2px 5px #F36C31;
 }
 
 .submit-btn {
@@ -657,11 +670,14 @@ input:focus {
   border-radius: 10px;
   cursor: pointer;
 
-  transition: all .2s ease-in;
+  transition: box-shadow .3s ease, color .3s ease, outline .1s ease;
+
+  
 }
 
 .submit-btn:hover {
   color: var(--mainBackground);
+  box-shadow: 0px 0px 5px 1.5px #FFFFFF, -1px 2px 17px #F36C31;
 }
 
 /* Footer */
@@ -808,6 +824,7 @@ footer {
 }
 
 @media (max-width: 540px) {
+
   /* Navbar */
   .nav-links {
     width: 50%;
@@ -982,10 +999,16 @@ footer {
 
 @keyframes skill {
   0% {
+    opacity: 0;
     width: 0%;
   }
 
+  20% {
+    opacity: 1;
+  }
+
   100% {
+    opacity: 1;
     width: 100%;
   }
 }

@@ -99,6 +99,7 @@ export default function Home({ data, info, about }) {
     { name: "Javascript" },
     { name: "Git" },
     { name: "React" },
+    { name: "NestJs" },
   ];
 
   let skillsArray = skills.map((skill) => {
