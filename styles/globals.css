@@ -276,7 +276,7 @@ section {
 }
 
 .skills-container.animate .skill::after {
-  animation: skill 1.5s forwards ease-in;
+  animation: skill 2.5s forwards ease;
 }
 
 /* Projects */
@@ -304,79 +304,14 @@ section {
   border: 3px solid var(--mainColor);
 }
 
-.card.animate:nth-child(1) {
-  animation: card .8s forwards ease;
-  animation-delay: .5s;
+.card.animate:nth-child(odd) {
+  animation: card-odd 1.1s forwards ease;
+  animation-delay: .4s;
 }
 
-.card.animate:nth-child(2) {
-  animation: card .8s forwards ease;
-  animation-delay: .9s;
-}
-
-.card.animate:nth-child(3) {
-  animation: card .8s forwards ease;
-  animation-delay: 1.4s;
-}
-
-.card.animate:nth-child(4) {
-  animation: card .8s forwards ease;
-  animation-delay: .5s;
-}
-
-.card.animate:nth-child(5) {
-  animation: card .8s forwards ease;
-  animation-delay: .9s;
-}
-
-.card.animate:nth-child(6) {
-  animation: card .8s forwards ease;
-  animation-delay: 1.4s;
-}
-
-.card.animate:nth-child(7) {
-  animation: card .8s forwards ease;
-  animation-delay: .5s;
-}
-
-.card.animate:nth-child(8) {
-  animation: card .8s forwards ease;
-  animation-delay: .9s;
-}
-
-.card.animate:nth-child(9) {
-  animation: card .8s forwards ease;
-  animation-delay: 1.4s;
-}
-
-.card.animate:nth-child(10) {
-  animation: card .8s forwards ease;
-  animation-delay: .5s;
-}
-
-.card.animate:nth-child(11) {
-  animation: card .8s forwards ease;
-  animation-delay: .9s;
-}
-
-.card.animate:nth-child(12) {
-  animation: card .8s forwards ease;
-  animation-delay: 1.4s;
-}
-
-.card.animate:nth-child(13) {
-  animation: card .8s forwards ease;
-  animation-delay: .5s;
-}
-
-.card.animate:nth-child(14) {
-  animation: card .8s forwards ease;
-  animation-delay: .9s;
-}
-
-.card.animate:nth-child(15) {
-  animation: card .8s forwards ease;
-  animation-delay: 1.4s;
+.card.animate:nth-child(even) {
+  animation: card-even 1.1s forwards ease;
+  animation-delay: .3s;
 }
 
 .card-content {
@@ -883,50 +818,18 @@ footer {
     transform: translateX(-25%);
   }
 
-  .card.animate:nth-child(1) {
-    animation: card 1.25s forwards ease;
-    animation-delay: .5s;
+  .card.animate:nth-child(odd) {
+    animation: card-odd 1s forwards ease;
+    animation-delay: .25s;
   }
 
-  .card.animate:nth-child(2) {
-    animation: card 1.25s forwards ease;
-    animation-delay: .5s;
-  }
-
-  .card.animate:nth-child(3) {
-    animation: card 1.25s forwards ease;
-    animation-delay: .5s;
-  }
-
-  .card.animate:nth-child(4) {
-    animation: card 1.25s forwards ease;
-    animation-delay: .5s;
-  }
-
-  .card.animate:nth-child(5) {
-    animation: card 1.25s forwards ease;
-    animation-delay: .5s;
-  }
-
-  .card.animate:nth-child(6) {
-    animation: card 1.25s forwards ease;
-    animation-delay: .5s;
+  .card.animate:nth-child(even) {
+    animation: card-even 1s forwards ease;
+    animation-delay: .25s;
   }
 
   .card-description {
     font-size: 1rem;
-  }
-
-  .card.animate:nth-child(1) {
-    animation-delay: .2s;
-  }
-
-  .card.animate:nth-child(2) {
-    animation-delay: .4s;
-  }
-
-  .card.animate:nth-child(3) {
-    animation-delay: .6s;
   }
 
   /* About */
@@ -985,7 +888,7 @@ footer {
   }
 }
 
-@keyframes card {
+@keyframes card-odd {
   0% {
     opacity: 0;
     transform: translateX(-100%);
@@ -996,6 +899,19 @@ footer {
     transform: translateX(0%);
   }
 }
+
+@keyframes card-even {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
 
 @keyframes skill {
   0% {
