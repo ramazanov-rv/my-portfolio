@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { sendContactForm } from "../lib/api";
@@ -80,9 +79,9 @@ export default function Home({ data, info, about }) {
     { name: "contact", to: "#contact" },
   ];
 
-  const navLinks = navigation.map((navLink) => {
+  const navLinks = navigation.map((navLink, i) => {
     return (
-      <li key={nanoid()}>
+      <li key={i}>
         <a className="nav-link" href={navLink.to} onClick={handleNavClosing}>
           {navLink.name}
         </a>
@@ -102,9 +101,9 @@ export default function Home({ data, info, about }) {
     { name: "TypeScript" },
   ];
 
-  let skillsArray = skills.map((skill) => {
+  let skillsArray = skills.map((skill, i) => {
     return (
-      <div key={nanoid()} className="skill">
+      <div key={i} className="skill">
         <h4>{skill.name}</h4>
       </div>
     );
@@ -148,7 +147,7 @@ export default function Home({ data, info, about }) {
       setIsLoading(false);
       toast.warn("Fill every field please.", {
         position: "bottom-right",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
@@ -164,7 +163,7 @@ export default function Home({ data, info, about }) {
         setIsSent(false);
         toast.success("💌 Message Sent. Thanks!", {
           position: "bottom-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
@@ -186,7 +185,7 @@ export default function Home({ data, info, about }) {
         console.log(error);
         toast.error("💌 Message not sent. Try later.", {
           position: "bottom-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
