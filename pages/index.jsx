@@ -95,11 +95,11 @@ export default function Home({ data, info, about }) {
     { name: "HTML" },
     { name: "NextJs" },
     { name: "CSS/SCSS" },
-    { name: "Strapi" },
     { name: "Javascript" },
     { name: "Git" },
     { name: "React" },
     { name: "NestJs" },
+    { name: "TypeScript" },
   ];
 
   let skillsArray = skills.map((skill) => {
