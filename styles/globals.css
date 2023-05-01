@@ -223,6 +223,8 @@ section {
 
 .media-links li:hover .media-icon {
   color: var(--mainBackground);
+  box-shadow: 0 0 5px #fff, -1px 2px 17px #f36c31;
+  border: 1px solid hsla(0,0%,100%,.9);
 }
 
 .media-icon {
@@ -234,7 +236,7 @@ section {
   color: var(--mainWhite);
   background: var(--mainColor);
 
-  transition: var(--mainTransition);
+  transition: border .4s ease, color .3s ease, box-shadow .1s ease;
 }
 
 
