@@ -224,7 +224,7 @@ section {
 .media-links li:hover .media-icon {
   color: var(--mainBackground);
   box-shadow: 0 0 5px #fff, -1px 2px 17px #f36c31;
-  border: 1px solid hsla(0,0%,100%,.9);
+  border: 1px solid hsla(0, 0%, 100%, .9);
 }
 
 .media-icon {
@@ -558,7 +558,7 @@ input {
   border-radius: var(--mainBorderRadius);
 
   border: 3px solid var(--mainColor);
-  
+
 }
 
 input:focus {
@@ -609,7 +609,7 @@ input:focus {
 
   transition: box-shadow .3s ease, color .3s ease, outline .1s ease;
 
-  
+
 }
 
 .submit-btn:hover {
@@ -772,11 +772,15 @@ footer {
     justify-content: flex-end;
     flex-direction: column;
 
-    transform: translateX(100%);
+    transform: translateX(105%);
     transition: transform var(--mainTransition);
 
     border-radius: 0px 0px 0px 20px;
     animation: none;
+
+    border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+    border-left: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 5px #FFFFFF, -1px 2px 17px #F36C31;
   }
 
   .nav-links.active {
@@ -797,10 +801,18 @@ footer {
     display: block;
     animation: fade-in 1s forwards;
     animation-delay: 1.75s;
+
+    border: 2px solid rgba(255, 255, 255);
+    box-shadow: 0px 0px 5px #FFFFFF, -1px 2px 17px #F36C31;
   }
 
   .bars.active {
     background-color: var(--mainBackground);
+  }
+
+  /* Skills */
+  .skills-container.animate .skill::after {
+    animation: skill .8s forwards linear;
   }
 
   /* Projects Cards */
