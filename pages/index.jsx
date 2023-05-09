@@ -21,18 +21,20 @@ export async function getStaticProps() {
     "http://95.182.123.249:8889/api/info?populate=*"
   );
   const aboutResp = await fetch("http://95.182.123.249:8889/api/about");
+  const themeColor = await fetch("http://localhost:8889/api/theme-color");
 
   return {
     props: {
       data: await projectsResp.json(),
       info: await infoResp.json(),
       about: await aboutResp.json(),
+      themeColor: await themeColor.json()
     },
     revalidate: 40,
   };
 }
 
-export default function Home({ data, info, about }) {
+export default function Home({ data, info, about, themeColor }) {
   // Info
   const infoName = info.data.attributes.infoName;
   const infoJob = info.data.attributes.infoJob;
@@ -55,6 +57,9 @@ export default function Home({ data, info, about }) {
   const { ref: aboutRef, inView: aboutInView } = useInView({
     triggerOnce: true,
   });
+
+  // Theme Color
+  const theme = themeColor?.data?.attributes?.mainColor || "orange"
 
   // Handle Mobile Navigation
   const [isActiveNav, setIsActiveNav] = useState(false);
