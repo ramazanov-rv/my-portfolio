@@ -12,6 +12,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import ProjectCard from "./components/ProjectCard";
 import Footer from "./components/Footer";
+import { useEffect } from "react";
 
 export async function getStaticProps() {
   const projectsResp = await fetch(
@@ -28,13 +29,23 @@ export async function getStaticProps() {
       data: await projectsResp.json(),
       info: await infoResp.json(),
       about: await aboutResp.json(),
-      themeColor: await themeColor.json()
+      themeColor: await themeColor.json(),
     },
     revalidate: 40,
   };
 }
 
 export default function Home({ data, info, about, themeColor }) {
+  useEffect(() => {
+    // Theme Color
+    const theme = themeColor?.data?.attributes?.mainColor || "#f36c31";
+    function setTheme() {
+      document.documentElement.style.setProperty("--mainColor", theme);
+      return theme;
+    }
+    setTheme();
+  }, [themeColor]);
+
   // Info
   const infoName = info.data.attributes.infoName;
   const infoJob = info.data.attributes.infoJob;
@@ -58,8 +69,8 @@ export default function Home({ data, info, about, themeColor }) {
     triggerOnce: true,
   });
 
-  // Theme Color
-  const theme = themeColor?.data?.attributes?.mainColor || "orange"
+  // Photo Color
+  const photoColor = themeColor?.data?.attributes?.mainColor || "#f36c31";
 
   // Handle Mobile Navigation
   const [isActiveNav, setIsActiveNav] = useState(false);
@@ -213,7 +224,7 @@ export default function Home({ data, info, about, themeColor }) {
         />
       </header>
       <main className="container">
-        <Info name={infoName} job={infoJob} />
+        <Info name={infoName} job={infoJob} photoColor={photoColor} />
         <Skills
           inViewSkill={inViewSkill}
           refSkill={refSkill}

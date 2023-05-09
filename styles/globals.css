@@ -26,7 +26,7 @@
 }
 
 :root {
-  --mainColor: hsl(200, 75%, 40%) !important;
+  --mainColor: hsl(200, 75%, 40%);
   --mainBackground: #000 !important;
   --mainWhite: #FFF !important;
   --mainTransition: .2s ease-in-out;
@@ -223,13 +223,9 @@ section {
 
 .media-links li:hover .media-icon {
   color: var(--mainBackground);
-<<<<<<< HEAD
+
   box-shadow: 0 0 5px #fff, -1px 2px 17px var(--mainColor);
-  border: 1px solid hsla(0,0%,100%,.9);
-=======
-  box-shadow: 0 0 5px #fff, -1px 2px 17px #f36c31;
   border: 1px solid hsla(0, 0%, 100%, .9);
->>>>>>> 3b549885ec65aab582905259bf7dc2ac49d41d81
 }
 
 .media-icon {
