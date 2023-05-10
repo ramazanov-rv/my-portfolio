@@ -26,7 +26,7 @@
 }
 
 :root {
-  --mainColor: hsl(200, 75%, 40%);
+  --mainColor: #bc0101;
   --mainBackground: #000 !important;
   --mainWhite: #FFF !important;
   --mainTransition: .2s ease-in-out;

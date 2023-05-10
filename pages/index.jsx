@@ -22,7 +22,7 @@ export async function getStaticProps() {
     "http://95.182.123.249:8889/api/info?populate=*"
   );
   const aboutResp = await fetch("http://95.182.123.249:8889/api/about");
-  const themeColor = await fetch("http://localhost:8889/api/theme-color");
+  const themeColor = await fetch("http://95.182.123.249:8889/api/theme-color");
 
   return {
     props: {
