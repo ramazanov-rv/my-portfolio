@@ -8,6 +8,7 @@ const Info = ({ name, job, photoColor }) => {
     <>
       <section className="info">
         <svg
+          className="info-me-photo"
           width="235"
           height="280"
           viewBox="0 0 286 340"
