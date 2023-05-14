@@ -797,7 +797,7 @@ footer {
 
     border-bottom: 2px solid rgba(255, 255, 255, 0.9);
     border-left: 2px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0px 0px 5px #FFFFFF, -1px 2px 17px #F36C31;
+    box-shadow: 0px 0px 5px #FFFFFF, -1px 2px 17px var(--mainColor);
   }
 
   .nav-links.active {
