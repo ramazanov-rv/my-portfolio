@@ -178,8 +178,8 @@ section {
 
 .info-job {
   color: var(--mainColor);
-  font-size: 1.05rem;
-  font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 500;
 
   visibility: hidden;
   opacity: 0;
@@ -366,9 +366,9 @@ section {
   height: 100%;
   transform: translateX(-20%);
   object-fit: contain;
-  opacity: .7;
+  opacity: .8;
 
-  transition: .4s;
+  transition: all .4s;
 }
 
 .card:hover .project-img img {
