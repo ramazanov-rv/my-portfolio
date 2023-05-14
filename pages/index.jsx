@@ -31,7 +31,7 @@ export async function getStaticProps() {
       about: await aboutResp.json(),
       themeColor: await themeColor.json(),
     },
-    revalidate: 40,
+    // revalidate: 30,
   };
 }
 
