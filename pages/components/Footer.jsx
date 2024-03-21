@@ -12,7 +12,7 @@ const Footer = () => {
           <li>
             <Link
               target="_blank"
-              href="https://t.me/airtribunal"
+              href="https://t.me/ramazanov_rv"
               className="footer-link"
             >
               <TbBrandTelegram className="footer-icon" />

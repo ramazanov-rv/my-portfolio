@@ -85,7 +85,7 @@ const Contact = (props) => {
           <div
             className={!inViewContact ? "contact-item" : "contact-item animate"}
           >
-            <button disabled={isSent} className="submit-btn">
+            <button disabled={isSent} style={{height: '52px'}} className="submit-btn">
               {isLoading ? (
                 <ThemeProvider theme={theme}>
                   <CircularProgress size={30} />

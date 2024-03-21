@@ -13,64 +13,44 @@ import Contact from "./components/Contact";
 import ProjectCard from "./components/ProjectCard";
 import Footer from "./components/Footer";
 import { useEffect } from "react";
+import { data } from "./api/projects";
 
-export async function getStaticProps() {
-  const projectsResp = await fetch(
-    "http://95.182.123.249:8889/api/projects?populate=*"
-  );
-  const infoResp = await fetch(
-    "http://95.182.123.249:8889/api/info?populate=*"
-  );
-  const aboutResp = await fetch("http://95.182.123.249:8889/api/about");
-  const themeColor = await fetch("http://95.182.123.249:8889/api/theme-color");
-
-  return {
-    props: {
-      data: await projectsResp.json(),
-      info: await infoResp.json(),
-      about: await aboutResp.json(),
-      themeColor: await themeColor.json(),
-    },
-    revalidate: 20,
-  };
-}
-
-export default function Home({ data, info, about, themeColor }) {
+export default function Home() {
   useEffect(() => {
     // Theme Color
-    const theme = themeColor?.data?.attributes?.mainColor || "#f36c31";
+    const theme = "#bf2020"; //"#f36c31"
     function setTheme() {
       document.documentElement.style.setProperty("--mainColor", theme);
       return theme;
     }
     setTheme();
-  }, [themeColor]);
+  }, []);
 
   // Info
-  const infoName = info.data.attributes.infoName;
-  const infoJob = info.data.attributes.infoJob;
+  const infoName = "Ramazan Ramazanov";
+  const infoJob = "Front-end Web Developer";
 
   // Projects
-  const projectsArray = data.data.map((project) => {
+  const projectsArray = data.map((project) => {
     return (
       <ProjectCard
         key={project.id}
-        img={`http://95.182.123.249:8889${project?.attributes?.projectImg?.data?.attributes?.url}`}
-        title={project.attributes.projectTitle}
-        description={project.attributes.projectDescription}
-        link={project.attributes.projectLink}
+        img={project.img}
+        title={project.title}
+        description={project.description}
+        link={project.link}
       />
     );
   });
 
   // About
-  const aboutText = about.data.attributes.aboutDescription;
+  const aboutText = "My expertise in frontend development revolves around the React stack. I've worked with Next.js, Nest.js, Material-UI, GraphQL, REST API, and Websockets. Experienced in web app architecture design using react-router, state managers like Redux/MobX, and popular libraries like react-query and react-hook-form.";
   const { ref: aboutRef, inView: aboutInView } = useInView({
     triggerOnce: true,
   });
 
   // Photo Color
-  const photoColor = themeColor?.data?.attributes?.mainColor || "#f36c31";
+  const photoColor = "#bf2020"; //"#f36c31"
 
   // Handle Mobile Navigation
   const [isActiveNav, setIsActiveNav] = useState(false);

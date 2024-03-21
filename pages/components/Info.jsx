@@ -31,7 +31,7 @@ const Info = ({ name, job, photoColor }) => {
             height="353"
             rx="147.5"
             stroke={photoColor}
-            stroke-width="7"
+            strokeWidth="7"
           />
           <mask
             id="mask0_320_66"
