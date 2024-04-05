@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import { TbBrandTelegram } from "react-icons/tb";
 import { BsTelephoneFill } from "react-icons/bs";
-import { IoMdMail } from "react-icons/io"
+import { IoMdMail } from "react-icons/io";
 
 const Footer = () => {
   return (
@@ -38,9 +38,12 @@ const Footer = () => {
           </li>
         </ul>
         <div className="mail-num">
-          <Link href="mailto:airtribunal@gmail.com" className="mail mail-num-link">
+          <Link
+            href="mailto:info@ramazanov-web.ru"
+            className="mail mail-num-link"
+          >
             <IoMdMail className="mail-icon" />
-            airtribunal@gmail.com
+            info@ramazanov-web.ru
           </Link>
           <Link href="tel:9322488005" className="number mail-num-link">
             <BsTelephoneFill className="num-icon" />
