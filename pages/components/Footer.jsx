@@ -20,7 +20,7 @@ const Footer = () => {
           </li>
           <li>
             <Link
-              href="https://github.com/Airtribunal"
+              href="https://github.com/ramazanov-rv"
               target="_blank"
               className="footer-link"
             >
